@@ -29,7 +29,7 @@ public class Persona {
         this.dni = dni;
     }
 
-    public String getNumeroSeguridadSocial() {
+    public String getNumSeguridadSocial() {
         return numeroSeguridadSocial;
     }
 

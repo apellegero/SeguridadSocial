@@ -1,8 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Albert on 19/09/2016.
@@ -26,6 +25,19 @@ ArrayList<Persona> persones = new ArrayList<Persona>() ;
         persones.remove(dni);
     }
 
-    Map<String, Persona> dni = new HashMap<>();
+    public Optional<Persona> obtenerPersonaPorDNI(String dni){
+        return persones.stream().filter(persona -> persona.getDni().equals(dni)).findFirst();
+    }
 
+    public Optional<Persona> obtenerPersonaPorNumSS(String nSS){
+        return persones.stream().filter(persona -> persona.getNumSeguridadSocial().equals(nSS)).findFirst();
+    }
+
+    public List<Persona> obtenerPersonasRangoSalarial(double min, double max){
+        return persones.stream().filter(persona -> persona.getSalario() >= min && persona.getSalario() <= max).collect(Collectors.toList());
+    }
+
+    public List<Persona> obtenerPersonasMayoresQue(int edad){
+        return persones.stream().filter(persona -> persona.getEdad() > edad).collect(Collectors.toList());
+    }
 }
