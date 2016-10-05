@@ -20,6 +20,7 @@ public class Main {
         seguridadSocial.altaPersona(maria);
         seguridadSocial.altaPersona(carlos);
         seguridadSocial.altaPersona(anna);
+        System.out.println("****ARRAY LIST****");
         System.out.println("Altas a la seguridad social: " + seguridadSocial.obtenerTodas());
 
 
@@ -51,6 +52,7 @@ public class Main {
         seguridadSocialMapSS.altaPersona(carlos);
         seguridadSocialMapSS.altaPersona(anna);
 
+        System.out.println("****HasMap****");
         System.out.println("Altas a la seguridad social: " + seguridadSocialMapDni.obtenerTodas());
 
         System.out.println("Baja a la seguridad social: " + anna);
