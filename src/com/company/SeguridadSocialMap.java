@@ -1,9 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Albert on 28/09/2016.
@@ -31,7 +29,21 @@ public class SeguridadSocialMap {
         personaMapNumSS.remove(persona.getNumSeguridadSocial());
     }
 
+    public Persona obtenerPersonaPorDNI(String dni){
+        return personaMapDni.get(dni);
+    }
 
+    public Persona obtenerPersonaPorNumSS(String nSS){
+        return personaMapNumSS.get(nSS);
+    }
+
+    public List<Persona> obtenerPersonasRangoSalarial(double min, double max){
+        return personaMapDni.values().stream().filter(persona -> persona.getSalario() >= min && persona.getSalario() <=max).collect(Collectors.toList());
+    }
+
+    public List<Persona> obtenerPersonasMayoresQue(int edad){
+        return personaMapDni.values().stream().filter(persona -> persona.getEdad() > edad).collect(Collectors.toList());
+    }
 
 
 }
